@@ -1,7 +1,9 @@
 body {
-    
     background-color: var(--bg-color);
     color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .navbar {
@@ -15,48 +17,51 @@ body {
 
 .hero {
     /* background: image('background.jpg') no-repeat center center/cover; */
-    background-color: var(--card-bg);
+    background-color: var(--bg-color);
     height: 70vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    color:var(--text-color);
+    color: var(--text-color);
     text-align: center;
 }
 
 .hero h1 {
     font-size: 3rem;
     font-weight: bold;
-}
+} 
 
 .footer {
     background: var(--nav-bg);
     color: var(--text-color);
     text-align: center;
     padding: 20px 0;
+   
 }
 
 /* Light Theme */
 :root {
-    --bg-color: #f4f4f4;
-    --text-color: #000;
-    --nav-bg: #343a40;
+    --bg-color: #f9e5e5;
+    --text-color: #1f1d1d;
+    --nav-bg: #6a6969;
     --card-bg: #fff;
+    --t-bg: #717171;
 }
 
 /* Dark Theme */
 [data-theme="dark"] {
     --bg-color: #1a1a1a;
     --text-color: #fff;
-    --nav-bg: #000;
+    --nav-bg: #2d2d2d;
     --card-bg: #222;
+    --t-bg: #717171;
 }
 
 .login-container {
     max-width: 400px;
     margin: auto;
     margin-top: 80px;
-    background: var(--bg-color);
+    background-color: var(--nav-bg);
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);

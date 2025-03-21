@@ -40,14 +40,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $query = "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";
         $stmt = $conn->prepare($query);
         $stmt->bind_param("sss", $name, $email, $hashed_password);
-    
+
         if ($stmt->execute()) {
             echo "Registration successful! <a href='login.php'>Login here</a>";
         } else {
             echo "Error: " . $stmt->error;
         }
     }
-    
+
 }
 ?>
 
@@ -65,17 +65,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-grey">
+        <div class="container">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <button class="btn btn-outline-light ms-3" id="themeToggle">
+                        <i class="fa-solid fa-moon"></i> Dark Mode
+                    </button>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <div class="container mt-5">
         <h2>Sign Up</h2>
         <form action="sign_up.php" method="POST">
             <div class="mb-3">
                 <label for="name" class="form-label">Username:</label>
-                <input type="text" name="name" class="form-control <?php echo !empty($nameError) ? 'is-invalid' : ''; ?>" required value="<?php echo isset($name) ? htmlspecialchars($name) : ''; ?>">
+                <input type="text" name="name"
+                    class="form-control <?php echo !empty($nameError) ? 'is-invalid' : ''; ?>" required
+                    value="<?php echo isset($name) ? htmlspecialchars($name) : ''; ?>">
                 <div class="invalid-feedback"><?php echo $nameError; ?></div>
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email:</label>
-                <input type="email" name="email" class="form-control <?php echo !empty($emailError) ? 'is-invalid' : ''; ?>" required value="<?php echo isset($email) ? htmlspecialchars($email) : ''; ?>">
+                <input type="email" name="email"
+                    class="form-control <?php echo !empty($emailError) ? 'is-invalid' : ''; ?>" required
+                    value="<?php echo isset($email) ? htmlspecialchars($email) : ''; ?>">
                 <div class="invalid-feedback"><?php echo $emailError; ?></div>
             </div>
             <div class="mb-3">

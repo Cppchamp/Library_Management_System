@@ -15,7 +15,7 @@
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-grey">
         <div class="container">
             <a class="navbar-brand" href="index.php">Online Library</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -40,36 +40,17 @@
         <div>
             <h1>Welcome to Your Online Library</h1>
             <p>Explore thousands of books from different genres and read online for free.</p>
-            <a href="books.php" class="btn btn-light btn-lg">Browse Books</a>
-        </div>
-    </div>
-
-    <!-- Featured Books -->
-    <div class="container mt-5">
-        <h2 class="text-center mb-4">📚 Featured Books</h2>
-        <div class="row">
-            <?php while ($book = $result->fetch_assoc()): ?>
-                <div class="col-md-4">
-                    <div class="card mb-4">
-                        <img src="<?php echo $book['cover_image']; ?>" class="card-img-top" alt="Book Cover">
-                        <div class="card-body">
-                            <h5 class="card-title"><?php echo $book['title']; ?></h5>
-                            <p class="card-text">By <?php echo $book['author']; ?></p>
-                            <a href="read.php?id=<?php echo $book['id']; ?>" class="btn btn-primary">Read Now</a>
-                        </div>
-                    </div>
-                </div>
-            <?php endwhile; ?>
+            <a href="books.php" class="btn btn-light">Browse Books</a>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; 2024 Online Library. All Rights Reserved.</p>
+    <footer class="footer mt-auto">
+        <p>&copy; 2025 Online Library. All Rights Reserved.</p>
         <p>
-            <a href="about.php" class="text-white">About</a> |
-            <a href="contact.php" class="text-white">Contact</a> |
-            <a href="terms.php" class="text-white">Terms</a>
+            <a href="about.php" class="text">About</a> |
+            <a href="contact.php" class="text">Contact</a> |
+            <a href="terms.php" class="text">Terms</a>
         </p>
     </footer>
 </body>

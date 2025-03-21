@@ -46,21 +46,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="theme_toggle.js"></script>
 
-    <style>
-        ul{
-            background-color: transparent;
-        }
-        .navbar{
-            background-color: transparent;
-        }
-    </style>
-
 </head>
 
 <body>
-
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-grey">
         <div class="container">
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
@@ -71,7 +60,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
     </nav>
-
 
     <div class="login-container">
         <h2 class="text-center">Login</h2>
