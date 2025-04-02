@@ -23,7 +23,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="books.php">Books</a></li>
+                    <li class="nav-item"><a class="nav-link" href="book_gallery.php">Books</a></li>
                     <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
                     <li class="nav-item"><a class="nav-link btn btn-primary text-white px-4" href="sign_up.php">Sign
                             Up</a></li>
@@ -40,7 +40,7 @@
         <div>
             <h1>Welcome to Your Online Library</h1>
             <p>Explore thousands of books from different genres and read online for free.</p>
-            <a href="books.php" class="btn btn-light">Browse Books</a>
+            <a href="book_gallery.php" class="btn btn-light">Browse Books</a>
         </div>
     </div>
 
