@@ -66,3 +66,66 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+.book-card {
+    transition: transform 0.2s;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.book-card:hover {
+    transform: scale(1.05);
+}
+
+.book-card img {
+    height: 300px;
+    object-fit: cover;
+}
+
+.book-card .card-body {
+    text-align: center;
+    
+}
+
+.card-image-top {
+    /* width: 100%; 
+    height: 50%; 
+    max-width: 200px;  
+    max-height: 300px;
+     object-fit: cover;       /* Ensure the image covers the area of the container while keeping the aspect ratio */
+    /* border-radius: 8px;  /* Optional: Add rounded corners */
+}
+html {
+    scroll-behavior: smooth;
+}
+
+.reading-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.page-button {
+    margin: 5px;
+}
+.modal-body {
+    text-align: justify;
+    font-size: 18px;
+    line-height: 1.6;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow-y: auto !important;
+    max-height: 70vh; 
+
+}
+
+.modal-content {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.modal-header, .modal-footer {
+    background-color: var(--bg-color);
+}
