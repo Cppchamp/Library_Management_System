@@ -13,7 +13,7 @@ function fetchPage($url)
     return $data;
 }
 
-for ($page = 1; $page <= 1; $page++) {
+for ($page = 1; $page <= 100; $page++) {
 
     // Target website
     $url = "https://standardebooks.org/ebooks?page=" . $page; // Replace with the site you want to scrape
@@ -29,8 +29,6 @@ for ($page = 1; $page <= 1; $page++) {
 
     // Use XPath to extract titles
     $xpath = new DOMXPath($dom);
-    // $books = $xpath->query("//ol[@class='ebooks-list grid']");
-    // $books = $xpath->query("//li");
     $books = [];
 
     // Loop through each book item
@@ -40,6 +38,14 @@ for ($page = 1; $page <= 1; $page++) {
         $bookUrl = $xpath->query(".//p/a[@property='schema:url']", $li)->item(0)->getAttribute('href') ?? '';
         $imageUrl = $xpath->query(".//img[@property='schema:image']", $li)->item(0)->getAttribute('src') ?? '';
 
+        $stmt = $conn->prepare("INSERT INTO books (title, author, bookUrl, imageUrl) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("ssss", $title, $author, $bookUrl, $imageUrl);
+
+        if ($stmt->execute()) {
+            echo "✅ Inserted: $title by $author<br>";
+        } else {
+            echo "❌ Error inserting: " . $conn->error . "<br>";
+        }
 
         $books[] = [
             'title' => trim($title),
@@ -49,26 +55,8 @@ for ($page = 1; $page <= 1; $page++) {
         ];
     }
 
-    // Output results as JSON
-    echo json_encode($books, JSON_PRETTY_PRINT);
 
-
-
-    // foreach ($books as $book) {
-    //     $title = $xpath->query(".//p", $book)->item(0)->nodeValue;
-    //    // $author = $xpath->query(".//p[@class='author']", $book->item(0)->nodeValue);
-    //     $bookUrl = $xpath->query(".//a", $book)->item(0)->getAttribute("href");
-
-    //     // // Prepare SQL statement
-    //     // $stmt = $conn->prepare("INSERT INTO books (title, author, link) VALUES (?, ?, ?)");
-    //     // $stmt->bind_param("sss", $title, $author, $bookUrl);
-
-    //     // if ($stmt->execute()) {
-    //     //     echo "✅ Inserted: $title by $author<br>";
-    //     // } else {
-    //     //     echo "❌ Error inserting: " . $conn->error . "<br>";
-    //     // }
-    //     echo" ". $title;    
-    // }
+    
+  //  echo json_encode($books, JSON_PRETTY_PRINT);
 }
 ?>
