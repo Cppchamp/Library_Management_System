@@ -1,5 +1,9 @@
 <?php
-session_start();
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 include 'db.php';
 
 $errors = false;
@@ -42,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bind_param("sss", $name, $email, $hashed_password);
 
         if ($stmt->execute()) {
-            echo "Registration successful! <a href='login.php'>Login here</a>";
+            echo "<div class=container mt-5>Registration successful! <a href='login.php'>Login here</a></div>";
         } else {
             echo "Error: " . $stmt->error;
         }

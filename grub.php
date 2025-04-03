@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 include 'db.php';
 // Function to fetch webpage content using cURL
 function fetchPage($url)
@@ -56,7 +58,7 @@ for ($page = 1; $page <= 100; $page++) {
     }
 
 
-    
-  //  echo json_encode($books, JSON_PRETTY_PRINT);
+
+    //  echo json_encode($books, JSON_PRETTY_PRINT);
 }
 ?>

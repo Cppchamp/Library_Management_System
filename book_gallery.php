@@ -1,5 +1,14 @@
 <?php
-session_start();
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
+
 include 'db.php';
 
 $url = "https://standardebooks.org";
@@ -63,7 +72,7 @@ try {
                 <?php foreach ($books as $book): ?>
                     <?php $book_id = $book['bookUrl']; ?>
                     <div class="col-md-4 col-sm-6 mb-4">
-                        <a href="read.php?id=<?php echo $url . $book_id . "/text/single-page"; ?>&title=<?php echo $book['title'];?>"
+                        <a href="read.php?id=<?php echo $url . $book_id . "/text/single-page"; ?>&title=<?php echo $book['title']; ?>"
                             class="text-decoration-none">
                             <div class="card book-card shadow">
                                 <img src="<?php echo htmlspecialchars(rtrim($url, '/') . '/' . ltrim($book['imageUrl'], '/')); ?>"

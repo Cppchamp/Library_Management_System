@@ -1,10 +1,20 @@
 <?php
 // URL to scrape
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
+
+
+
 $url = "";
 $title = "";
-if (isset($_GET['id'] ) && isset($_GET['title'])) {
+if (isset($_GET['id']) && isset($_GET['title'])) {
     $url = $_GET['id'];
-    $title =$_GET['title'];
+    $title = $_GET['title'];
 } else {
     echo "No book ID received.";
 }
