@@ -4,9 +4,9 @@ An Online Library Management System built using PHP and MySQL. This system allow
 
 ## How does it work??
 
--the `grub.php` file works by scraping the gallery of a website called [Standard Ebooks](https://standardebooks.org) and storing it into a database.
--the `book_gallery.php` gets data from the db and visualises it in the form of a catalogue.
--the `read.php` gets the data from whichever book the user clicked and prints it to read.
+- The `grub.php` file works by scraping the gallery of a website called [Standard Ebooks](https://standardebooks.org) and storing it into a database.
+- The `book_gallery.php` gets data from the db and visualises it in the form of a catalogue.
+- The `read.php` gets the data from whichever book the user clicked and prints it to read.
 
 
 ## Features
