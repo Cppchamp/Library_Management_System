@@ -129,3 +129,27 @@ html {
 .modal-header, .modal-footer {
     background-color: var(--bg-color);
 }
+
+/* .sidebar {
+    height: 100vh;
+    position: fixed;
+    width: 220px;
+    background-color: #343a40;
+}
+
+.sidebar .nav-link {
+    color: white;
+}
+
+.sidebar .nav-link.active {
+    background-color: #495057;
+}
+
+.content {
+    margin-left: 220px;
+    padding: 2rem;
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+} */
